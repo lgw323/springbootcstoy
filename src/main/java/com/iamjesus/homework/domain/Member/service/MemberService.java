@@ -23,4 +23,11 @@ public class MemberService {
             throw new UnauthorizedException(MemberExceptionCode.UNAUTHORIZED_WRONG_PASSWORD);
         }
     }
+    public void withdrawMember(String username, String password) {
+        Member member = memberRepository.findByUsername(username).orElseThrow(() -> new NotFoundException(MemberExceptionCode.NOT_FOUND_MEMBER));
+        if(!member.getPassword().equals(password)) {
+            throw new UnauthorizedException(MemberExceptionCode.UNAUTHORIZED_WRONG_PASSWORD);
+        }
+        memberRepository.delete(member);
+    }
 }
