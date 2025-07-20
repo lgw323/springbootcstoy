@@ -8,6 +8,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum PostSuccessCode implements SuccessCode {
     OK_CREATED_POST(2101, "게시글 작성에 성공했습니다."),
+    OK_GET_POST(2102, "게시글 목록 조회에 성공했습니다."),
+    OK_GET_POST_BYID(2103, "게시글 조회에 성공했습니다."),
     ;
     private int code;
     private String message;
