@@ -30,6 +30,6 @@ public class PostController {
     @GetMapping("/{postid}")
     public PostResponse<PostDetail> getPost(@PathVariable Long postid) {
         PostDetail postDetail = postService.findPostById(postid);
-        return PostResponse.of(PostSuccessCode.OK_GET_POST_BYID);
+        return PostResponse.of(PostSuccessCode.OK_GET_POST_BYID, postDetail);
     }
 }

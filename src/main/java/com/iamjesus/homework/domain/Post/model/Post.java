@@ -4,7 +4,6 @@ import com.iamjesus.homework.domain.Member.model.Member;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -29,8 +28,8 @@ public class Post {
     private Member member;
 
     @CreatedDate
-    @Column(name = "createAt")
-    private LocalDateTime createAt;
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
 
     private Post(String title, String content, Member member) {
         this.title = title;

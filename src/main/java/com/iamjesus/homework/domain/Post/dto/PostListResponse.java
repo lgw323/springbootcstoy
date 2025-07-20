@@ -5,8 +5,8 @@ import com.iamjesus.homework.domain.Post.model.Post;
 
 import java.time.LocalDateTime;
 
-public record PostListResponse(Long id, Author author, @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss") LocalDateTime createAt, String title) {
+public record PostListResponse(Long id, Author author, @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss") LocalDateTime createdAt, String title) {
     public static PostListResponse from(Post post) {
-        return new PostListResponse(post.getId(), Author.from(post.getMember()), post.getCreateAt(), post.getTitle());
+        return new PostListResponse(post.getId(), Author.from(post.getMember()), post.getCreatedAt(), post.getTitle());
     }
 }

@@ -31,8 +31,8 @@ public class Comment {
     private Post post;
 
     @CreatedDate
-    @Column(name = "createAt")
-    private LocalDateTime createAt;
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
 
     private Comment(Post post, String content, Member member) {
         this.post = post;

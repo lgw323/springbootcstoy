@@ -1,6 +1,5 @@
 package com.iamjesus.homework.domain.Post.service;
 
-import com.iamjesus.homework.domain.Comment.model.Comment;
 import com.iamjesus.homework.domain.Comment.repository.CommentRepository;
 import com.iamjesus.homework.domain.Member.controller.code.MemberExceptionCode;
 import com.iamjesus.homework.domain.Member.model.Member;
@@ -17,7 +16,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -39,6 +37,6 @@ public class PostService {
     public PostDetail findPostById(Long postid) {
         Post post = postRepository.findById(postid).orElseThrow(() -> new NotFoundException(PostExceptionCode.NOT_FOUND_POST));
         List<CommentforPost> comments = commentRepository.findByPostId(post.getId()).stream().map(CommentforPost::from).collect(Collectors.toList());
-        return new PostDetail(post.getId(), Author.from(post.getMember()), post.getCreateAt(), post.getTitle(), post.getContent(), comments);
+        return new PostDetail(post.getId(), Author.from(post.getMember()), post.getCreatedAt(), post.getTitle(), post.getContent(), comments);
     }
 }
